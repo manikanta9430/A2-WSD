@@ -1,20 +1,33 @@
 function reverseString() {
     const input = document.getElementById('inputString').value;
-    const reversed = input.split('').reverse().join('');
-    document.getElementById('result').textContent = reversed;
+    let result = "";
+    for(let i=input.length-1;i>=0;i--){
+        result += input[i];
+    }
+    document.getElementById('result').textContent = result;
 }
 
 
 function checkPalindrome() {
     const input = document.getElementById('inputPalindrome').value;
-    const cleaned = input.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
-    const reversed = cleaned.split('').reverse().join('');
-    if (cleaned === reversed) {
+    const numLength = input.length;
+
+    let isPalindrome = true;
+
+    for (let i = 0; i < numLength / 2; i++) {
+        if (input[i] !== input[numLength - 1 - i]) {
+            isPalindrome = false;
+            break;
+        }
+    }
+
+    if (isPalindrome) {
         document.getElementById('palindromeResult').textContent = 'It\'s a palindrome!';
     } else {
         document.getElementById('palindromeResult').textContent = 'It\'s not a palindrome.';
     }
 }
+
 
 
 function calculateTotal() {
