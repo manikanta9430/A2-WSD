@@ -1,7 +1,7 @@
 function reverseString() {
     const input = document.getElementById('inputString').value;
     let result = "";
-    for(let i=input.length-1;i>=0;i--){
+    for (let i = input.length - 1; i >= 0; i--) {
         result += input[i];
     }
     document.getElementById('result').textContent = result;
